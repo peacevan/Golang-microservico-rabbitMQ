@@ -32,14 +32,11 @@ Para que uma mensagem possa ser parseada pelo sistema de encoder, ela deverá ch
 }
 ```
 
-* `resource_id`: Representa o ID do vídeo que você deseja converter. Ele é do tipo string.
-* `file_path`: É o caminho completo do vídeo mp4 dentro do bucket.
 
-## Padrão de retorno de mensagem pelo encoder
 
 ### Sucesso no processamento
 
-Para cada vídeo processado, o encoder enviará para uma exchange (a ser configurada no .env) o resultado do processamento.
+
 
 Caso o processamento tenha sido concluído com sucesso, o padrão de retorno em json será:
 
@@ -75,5 +72,3 @@ Caso o processamento tenha encontrado algum erro, o padrão de retorno em json s
 }
 ```
 
-Além disso, o encoder enviará para uma dead letter exchange a mensagem original que houve problema durante o processamento.
-Basta configurar a DLX desejada no arquivo .env no parâmetro: `RABBITMQ_DLX`
